@@ -1,32 +1,50 @@
+# declare the Docker Version
 version: '3.8'
+
+#Setup for All the Services
 services:
+
+  # PHP apache environmeny
   php-apache-environment:
     container_name: php-apache
+
+    # Used to help install extra extenstions for Apache
     build:
       context: ./php
       dockerfile: DockerFile
+
+    #Used to setup php Apache with db
     depends_on:
       - db
+
+    # Used to map the location
     volumes:
       - ./php/src:/var/www/html/
+    #Used to map port to 8000
     ports:
       - 8000:80
+  # Setup MySQL service
   db:
     container_name: db
     image: mysql
     restart: always
+    #setup some environmental variables
     environment:
       MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
       MYSQL_DATABASE: MY_DATABASE
       MYSQL_USER: MYSQL_USER
       MYSQL_PASSWORD: MYSQL_PASSWORD
+    #map the port
     ports:
       - "9906:3306"
+  #setup PHPMyAdmin service
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    #map the port
     ports:
       - '8080:80'
     restart: always
+    #Setup with db (mysql)
     environment:
       PMA_HOST: db
     depends_on:

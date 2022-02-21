@@ -16,6 +16,7 @@ $mydatabase = 'MYSQL_DATABASE';
 // check the MySQL connection status
 $conn = new mysqli($host, $user, $pass, $mydatabase);
 
+// select query
 $sql = 'SELECT * FROM users';
 
 if ($result = $conn->query($sql)) {

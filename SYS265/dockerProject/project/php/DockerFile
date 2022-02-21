@@ -1,3 +1,6 @@
+# Declare where to perform the below commands from
 FROM php:8.0-apache
+# This installs an extension of php that sets up mysqli and adds some other features it also enables this
 RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+# This updates and upgrades our installation software
 RUN apt-get update && apt-get upgrade -y
