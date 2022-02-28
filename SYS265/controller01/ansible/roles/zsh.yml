@@ -1,0 +1,7 @@
+---
+- name: oh-my-zsh SYS265
+  hosts: zsh
+  roles:
+    - role: gantsign.oh-my-zsh
+      users:
+        - username: deployer

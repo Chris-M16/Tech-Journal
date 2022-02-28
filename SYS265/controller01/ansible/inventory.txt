@@ -1,0 +1,9 @@
+[zsh]
+ansible1-chris
+[webmin]
+ansible2-chris
+[windows]
+mgmt01-chris
+wks01-chris
+[windows:vars]
+ansible_shell_type=powershell
