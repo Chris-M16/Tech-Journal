@@ -2,7 +2,6 @@ set interfaces ethernet eth0 address '172.16.150.3/24'
 set interfaces ethernet eth0 description 'SEC350-LAN'
 set interfaces ethernet eth1 address '172.16.200.2/28'
 set interfaces ethernet eth1 description 'SEC350-MGMT'
-set nat source
 set protocols rip interface eth0
 set protocols rip network '172.16.200.0/28'
 set protocols static route 0.0.0.0/0 next-hop 172.16.150.2
