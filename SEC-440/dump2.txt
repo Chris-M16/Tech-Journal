@@ -1,0 +1,17 @@
+set high-availability vrrp group langroup0 address 10.0.5.1/24
+set high-availability vrrp group langroup0 interface 'eth1'
+set high-availability vrrp group langroup0 priority '100'
+set high-availability vrrp group langroup0 vrid '10'
+set high-availability vrrp group wangroup13 address 10.0.17.113/24
+set high-availability vrrp group wangroup13 interface 'eth0'
+set high-availability vrrp group wangroup13 priority '100'
+set high-availability vrrp group wangroup13 vrid '163'
+set interfaces ethernet eth0 address '10.0.17.83/24'
+set interfaces ethernet eth1 address '10.0.5.3/24'
+set protocols static route 0.0.0.0/0 next-hop 10.0.17.2
+set service dns forwarding allow-from '10.0.5.0/24'
+set service dns forwarding listen-address '10.0.5.3'
+set service dns forwarding system
+set service ssh listen-address '0.0.0.0'
+set system host-name 'vyos02'
+set system name-server '10.0.17.2'
